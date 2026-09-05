@@ -51,9 +51,16 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
 5. Choose a Volume Label.
 6. `START`.
 
-# First Boot
+# Boot into ISO USB
 
 1. Enter BIOS/UEFI
-2. Change boot order to give priority to the USB.
-3. Disable Secure Boot.
-4. 
+   - Change boot order to give priority to the USB.
+   - Disable Secure Boot.
+2. Boot into ISO USB
+   - Open Windows Settings
+   - `Windows Update`
+   - `Advanced Options`
+   - `Recovery`
+   - `Advanced Startup`
+   - `Use a Device`
+   - `UEFI: Removable Device`
