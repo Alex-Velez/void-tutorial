@@ -153,7 +153,7 @@ This section...
 - is highly opinionated.
 - is meant to be followed in exact order to ensure smoothest configuration.
 
-## Configure WifI Internet
+## Configure WiFi Internet
 
 1. Test WiFi: `ip link show`
 2. Add WiFi with `wpa_supplicant`:
