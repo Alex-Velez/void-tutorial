@@ -154,7 +154,7 @@ This section...
 - is highly opinionated.
 - is meant to be followed in exact order to ensure smoothest configuration.
 - assumes you have already booted and logged into the base Void Linux System.
-- will most likely require the `sudo` prefix for most commands.
+- will most likely require elevated privileges for most commands.
 
 ## Configure WiFi Internet
 
