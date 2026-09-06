@@ -152,7 +152,7 @@ At this point, you have a working base Void Linux System.
 This section...
 - is highly opinionated.
 - is meant to be followed in exact order to ensure smoothest configuration.
-- assumes you have already booted into the base Void Linux System.
+- assumes you have already booted and logged into the base Void Linux System.
 
 ## Configure WiFi Internet
 
