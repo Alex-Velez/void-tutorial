@@ -5,11 +5,12 @@ Personal notes for configuring my Void Linux setup
 # Prerequisites
 
 This tutorial...
-- assumes `x86_64` hardware and compatibility; with Windows OS.
+- assumes `x86_64` hardware and compatibility (AMD CPU, Nvidia GPU); with Windows OS. (can be altered)
+- assumes your location is North America, United States. (can be altered)
+- assumes basic terminal and command line competency.
 - is meant to be followed exactly, line-by-line, in order to replicate my Void Linux setup.
 - is inherently opinionated and suited to my personal preferences for Void Linux.
-- assumes basic terminal and command line competency.
-- is meant as a basic starting point for absolute Void Linux beginners (myself).
+- is meant as a basic starting point for absolute Void Linux beginners. (myself)
 - may be out of date.
 
 # Download Bootable-USB-Creator
@@ -64,3 +65,84 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
    - `Advanced Startup`
    - `Use a Device`
    - `UEFI: Removable Device`
+
+# Install Void Linux
+
+This section...
+- is heavily dependent on hardware.
+- may need extra configuration or different settings. (refer to [Void Linux Installation Guide](https://docs.voidlinux.org/installation/live-images/guide.html))
+- assumes you will install Void Linux to a `64GB` USB Drive.
+- assumes you will connect to WiFi.
+
+Create a Bootable USB (Void Linux):
+
+1. Login: `root`
+2. Password: `voidlinux`
+3. Identify device to install: `fdisk -l` > `/dev/sd?` (refer to [Void Linux Installation Media Preparation](https://docs.voidlinux.org/installation/live-images/prep.html))
+4. `void-installer`
+   - Keyboard: `us`
+   - Network:
+      - `WIFINAME`
+      - `wpa`
+      - `WIFIPASSWORD`
+   - Source: `Network`
+   - Mirror: `NA` (or closest to your location)
+   - Hostname: `void-linux`
+   - Locale: `English (United States of America)` (or closest to your location)
+   - Timezone: `America\Chicago` (or closest to your location)
+   - RootPassword: `***SECUREPASSWORD***`
+   - UserAccount:
+      - Name: `***name***`
+      - Display Name: `***Full Name***`
+      - Group Membership:
+         - `wheel`    : Elevated privileges for specific system administration tasks.
+         - `lp`       : Access to printers.
+         - `dialout`  : Access to serial ports.
+         - `audio`    : Access to audio devices.
+         - `video`    : Access to video devices.
+         - `cdrom`    : Access to CD devices.
+         - `optical`  : Access to DVD/CD-RW devices.
+         - `storage`  : Access to removable storage devices.
+         - `scanner`  : Ability to access scanners.
+         - `network`  : Used by some networking-related packages.
+         - `kvm`      : Ability to use KVM for virtual machines.
+         - `input`    : Access to input devices.
+         - `plugdev`  : Access to pluggable devices.
+         - `xbuilder` : To use `xbps-uchroot(1)` with `xbps-src`.
+   - BootLoader:
+      - `/dev/sd?` : Select USB/Disk to install Void Linux
+   - Partition: (refer to [Partition Notes](https://docs.voidlinux.org/installation/live-images/partitions.html))
+      - `/dev/sd?` : Select USB/Disk to install Void Linux
+      - `cfdisk`:
+         1. Delete all existing partitions.
+         2. Create EFI Partition:
+            - `512M` (typically between `200MB`-`1GB`)
+            - Partition Type: `EFI System`
+         3. Create Root Partition:
+            - `59.5GB` (typically `30GB` or higher)
+            - Partition Type: `Linux filesystem`
+         4. Create Swap Partition:
+            - `4GB` (typically `4GB` or higher)
+            - Partition Type: `Linux swap`
+         5. Write changes.
+         6. Quit `cfdisk`.
+   - Filesystems:
+      1. EFI Partition: `/dev/sda1`
+         - Filesystem: `vfat`
+         - Mount Point: `/boot/efi`
+      2. Root Partition: `/dev/sda2`
+         - Filesystem: `btrfs`
+         - Mount Point: `/`
+      3. Swap Partition: `/dev/sda3`
+         - Filesystem: `swap`
+      4. Done.
+   - Install.
+5. Enable Services:
+   - `acpid`
+   - `dhpcd`
+   - `dhpcd-eth0`
+   - `sshd`
+   - `wpa_supplicant`
+6. Reboot The System.
+
+# Configure Void Linux
