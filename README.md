@@ -11,7 +11,7 @@ This tutorial...
 - is meant to be followed exactly, line-by-line, in order to replicate my Void Linux setup.
 - is inherently opinionated and suited to my personal preferences for Void Linux.
 - is meant as a basic starting point for absolute Void Linux beginners. (myself)
-- is a "worse" version of the [Official Void Handbook](https://docs.voidlinux.org/)
+- is a "worse" version of the [Official Void Handbook](https://docs.voidlinux.org/).
 - may be out of date.
 
 # Download Bootable-USB-Creator
