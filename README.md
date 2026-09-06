@@ -146,3 +146,26 @@ Create a Bootable USB (Void Linux):
 6. Reboot The System.
 
 # Configure Void Linux
+
+At this point, you have a working base Void Linux System.
+
+This section...
+- is highly opinionated.
+- is meant to be followed in exact order to ensure smoothest configuration.
+
+## Configure WifI Internet
+
+1. Test WiFi: `ip link show`
+2. Add WiFi with `wpa_supplicant`:
+   - Private/Home WiFi (has password):
+      1. `su`
+      2. `wpa_passphrase WIFINAME WIFIPASSWORD >> /etc/wpa_supplicant/wpa_supplicant.conf`
+      3. `exit`
+   - Public WiFi (no password):
+      1. `su`
+      2. `printf 'network={\n\tssid="PUBLICWIFINAME"\n\tkey_mgmt=NONE\n}\n' >> /etc/wpa_supplicant/wpa_supplicant.conf`
+      3. `exit`
+4. Test Internet Connection: `ping -c 5 voidlinux.org`
+
+## Update System
+
