@@ -33,7 +33,7 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
 `Get-FileHash .\void-live-x86_64-XXXXXXXX-base.iso -Algorithm SHA256`
 
 1. Verify that the generated hash matches exactly the `SHA-256` hash published in the `sha256sum.txt` file.
-2. Validate authenticity of the `sha256sum.txt` file.
+2. Validate authenticity of the `sha256sum.txt` file. (refer to [Void Linux Verifying Digital Signature](https://docs.voidlinux.org/installation/index.html))
 
 ## Example:
 > 1. ISO: `void-live-x86_64-20250202-base.iso`
