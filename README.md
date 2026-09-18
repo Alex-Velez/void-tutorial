@@ -46,7 +46,7 @@ xbps-install -S qt5-wayland qt6-wayland
 echo "QT_QPA_PLATFORM=wayland" >> /etc/environment
 xbps-install -S kwayland
 echo "ELM_DISPLAY=wl" >> /etc/environment
-echo "SDL_VIDEODRIVER=wayland" >> /etc/environment
+echo "SDL_VIDEODRIVER=wayland,x11" >> /etc/environment
 xbps-install -S xorg-server-xwayland
 echo "XDG_SESSION_TYPE=wayland" >> /etc/environment
 xbps-install -S xdg-desktop-portal xdg-desktop-portal-gtk
