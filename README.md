@@ -107,3 +107,19 @@ xbps-install -S libspa-bluetooth
 To be continued, with further instructions and more detail as I grow my personal daily-driver Void Linux system.
 
 I just wanted a way to replicate my setup, since I often forget commands, applications, and configs; in case I need to reinstall Void Linux onto another device.
+
+# Final System
+| | |
+| - | - |
+| architecture | x86_64 |
+| cpu | AMD Ryzen 9 8945HS |
+| gpu | NVIDIA GeForce RTX 4070 |
+| filesystem | btrfs |
+| init | runit |
+| display_server | Wayland |
+| compositor | niri |
+| login_manager | greetd |
+| audio | pipewire |
+| shell | nushell |
+| terminal | alacritty |
+| editor | helix |
