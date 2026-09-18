@@ -136,8 +136,8 @@ Create a Bootable USB (Void Linux):
    - Install.
 5. Enable Services:
    - `acpid`
-   - `dhpcd`
-   - `dhpcd-eth0`
+   - `dhcpcd`
+   - `dhcpcd-eth0`
    - `sshd`
    - `wpa_supplicant`
 6. Reboot The System.
