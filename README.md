@@ -102,6 +102,13 @@ ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire
 xbps-install -S libspa-bluetooth
 ```
 
+## Gaming
+
+```
+xbps-install -S steam xwayland-satellite libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit nvidia-libs-32bit
+xbps-install -Su
+```
+
 # Notes
 
 To be continued, with further instructions and more detail as I grow my personal daily-driver Void Linux system.
