@@ -16,7 +16,7 @@ This section...
 2. Add WiFi with `wpa_supplicant`:
    - Private/Home WiFi (has password): `wpa_passphrase WIFINAME WIFIPASSWORD >> /etc/wpa_supplicant/wpa_supplicant.conf`
    - Public WiFi (no password): `printf 'network={\n\tssid="PUBLICWIFINAME"\n\tkey_mgmt=NONE\n}\n' >> /etc/wpa_supplicant/wpa_supplicant.conf`
-4. Enable `wpa_applicant` Service: `ln -s /etc/sv/wpa_supplicant /etc/runit/runsvdir/default`
+4. Enable `wpa_supplicant` Service: `ln -s /etc/sv/wpa_supplicant /etc/runit/runsvdir/default`
 5. Test Internet Connection: `ping -c 5 voidlinux.org`
 
 ## Firmware
