@@ -1,13 +1,14 @@
 # Prerequisites
 
 This tutorial...
-- assumes `x86_64` hardware and compatibility (AMD CPU, Nvidia GPU); with Windows OS. (can be altered)
+- assumes a Windows OS starting point. (not strictly required)
+- assumes `x86_64` hardware and compatibility. (AMD CPU, Nvidia GPU, etc.) 
 - assumes your location is North America, United States. (can be altered)
-- assumes basic terminal and command line competency.
-- is meant to be followed exactly, line-by-line, in order to replicate my Void Linux setup.
-- is inherently opinionated and suited to my personal preferences for Void Linux.
-- is meant as a basic starting point for absolute Void Linux beginners. (myself)
-- is a "worse" version of the [Official Void Handbook](https://docs.voidlinux.org/).
+- is meant to be followed exactly, line-by-line.
+- is my personal guide for installing Void Linux onto a USB.
+- requires two storage drives.
+   - One for the ISO and another to install the OS.
+   - Examples: 1 USB + 1 USB, 1 USB + 1 HDD, 1 USB + 1 SSD, etc.
 - may be out of date.
 
 # Download Bootable-USB-Creator
@@ -15,7 +16,7 @@ This tutorial...
 Any will do, this is what I recommend:
 - Rufus: https://rufus.ie/en/
 
-# Download ISO & Checksum
+# Download ISO, Checksum, & Signature
 
 Void Linux ISO: [void-live-x86_64-XXXXXXXX-base.iso](https://repo-default.voidlinux.org/live/current)
 
@@ -51,7 +52,7 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
 
 # Boot into ISO USB
 
-1. Enter BIOS/UEFI
+1. Change BIOS/UEFI Settings:
    - Change boot order to give priority to the USB.
    - Disable Secure Boot.
 2. Boot into ISO USB
@@ -69,14 +70,21 @@ This section...
 - is heavily dependent on hardware.
 - may need extra configuration or different settings. (refer to [Void Linux Installation Guide](https://docs.voidlinux.org/installation/live-images/guide.html))
 - assumes you will install Void Linux to a `64GB` USB Drive.
-- assumes you will connect to WiFi.
+- assumes you have access to a WiFi connection.
 
 Create a Bootable USB (Void Linux):
 
 1. Login: `root`
 2. Password: `voidlinux`
-3. Identify device to install: `fdisk -l` > `/dev/sd?` (refer to [Void Linux Installation Media Preparation](https://docs.voidlinux.org/installation/live-images/prep.html))
-4. `void-installer`
+3. Identify device to install and filesystem: (refer to [Void Linux Installation Media Preparation](https://docs.voidlinux.org/installation/live-images/prep.html))
+   a. `lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,MOUNTPOINTS`
+   b. USB Drive name should be should be under `NAME`: `/dev/sd#` (ex. `/dev/sdb`)
+   c. USB Drive file type should be under `FSTYPE`: (ex. `vfat`)
+5. Format storage device & verify filesystem:
+   a. `umount /dev/sd#`
+   b. `mkfs.fat -F32 /dev/sd#` or `mkfs.vfat /dev/sd#` or `mkfs.exfat /dev/sd#` or `mkfs.ext4 /dev/sd#` or etc...
+   c. `lsblk -f`
+7. `void-installer`
    - Keyboard: `us`
    - Network:
       - `WIFINAME`
@@ -134,13 +142,13 @@ Create a Bootable USB (Void Linux):
          - Filesystem: `swap`
       4. Done.
    - Install.
-5. Enable Services:
+8. Enable Services:
    - `acpid`
    - `dhcpcd`
    - `dhcpcd-eth0`
    - `sshd`
    - `wpa_supplicant`
-6. Reboot The System.
+9. Reboot The System.
 
 # Additional Notes
 
