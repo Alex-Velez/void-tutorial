@@ -121,13 +121,13 @@ Create a Bootable USB (Void Linux):
       - `cfdisk`:
          1. Delete all existing partitions.
          2. Create EFI Partition:
-            - `512M` (typically between `200MB`-`1GB`)
+            - `1G` (typically between `200MB`-`1GB`)
             - Partition Type: `EFI System`
          3. Create Root Partition:
-            - `59.5GB` (typically `30GB` or higher)
+            - `49.9GB` (typically `30GB` or higher)
             - Partition Type: `Linux filesystem`
          4. Create Swap Partition:
-            - `4GB` (typically `4GB` or higher)
+            - `6.3GB` (typically `4GB` or higher)
             - Partition Type: `Linux swap`
          5. Write changes.
          6. Quit `cfdisk`.
