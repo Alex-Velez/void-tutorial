@@ -117,9 +117,9 @@ Create a Bootable USB (Void Linux):
          - `plugdev`  : Access to pluggable devices.
          - `xbuilder` : To use `xbps-uchroot(1)` with `xbps-src`.
    - BootLoader:
-      - `/dev/sd?` : Select USB/Disk to install Void Linux
+      - `/dev/sd#` : Select USB/Disk to install Void Linux
    - Partition: (refer to [Partition Notes](https://docs.voidlinux.org/installation/live-images/partitions.html))
-      - `/dev/sd?` : Select USB/Disk to install Void Linux
+      - `/dev/sd#` : Select USB/Disk to install Void Linux
       - `cfdisk`:
          1. Delete all existing partitions.
          2. Create EFI Partition:
@@ -134,13 +134,13 @@ Create a Bootable USB (Void Linux):
          5. Write changes.
          6. Quit `cfdisk`.
    - Filesystems:
-      1. EFI Partition: `/dev/sda1`
+      1. EFI Partition: `/dev/sd#1`
          - Filesystem: `vfat`
          - Mount Point: `/boot/efi`
-      2. Root Partition: `/dev/sda2`
+      2. Root Partition: `/dev/sd#2`
          - Filesystem: `btrfs`
          - Mount Point: `/`
-      3. Swap Partition: `/dev/sda3`
+      3. Swap Partition: `/dev/sd#3`
          - Filesystem: `swap`
       4. Done.
    - Install.
