@@ -76,11 +76,13 @@ Create a Bootable USB (Void Linux):
 
 1. Login: `root`
 2. Password: `voidlinux`
-3. Identify device to install and filesystem: (refer to [Void Linux Installation Media Preparation](https://docs.voidlinux.org/installation/live-images/prep.html))
+3. Identify device to install: (refer to [Void Linux Installation Media Preparation](https://docs.voidlinux.org/installation/live-images/prep.html))
    - `lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,MOUNTPOINTS`
    - USB Drive name should be should be under `NAME`: `/dev/sd#` (ex. `/dev/sdb`)
    - USB Drive file type should be under `FSTYPE`: (ex. `vfat`)
+   - Do NOT choose `VOID_LIVE`.
 5. Format storage device & verify filesystem:
+   - `Do NOT choose `VOID_LIVE`.
    - `umount /dev/sd#`
    - `mkfs.fat -F32 /dev/sd#` or `mkfs.vfat /dev/sd#` or `mkfs.exfat /dev/sd#` or `mkfs.ext4 /dev/sd#` or etc...
    - `lsblk -f`
