@@ -5,7 +5,7 @@ Personal notes for configuring my Void Linux setup
 # Prerequisites
 
 This section...
-- is highly opinionated.
+- is my personal configuration.
 - is meant to be followed in exact order to ensure smoothest configuration.
 - assumes you have already booted and logged into a fresh install of base Void Linux.
 - will most likely require elevated privileges for most commands.
