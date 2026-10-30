@@ -126,7 +126,7 @@ Create a Bootable USB (Void Linux):
             - `1G` (typically between `200MB`-`1GB`)
             - Partition Type: `EFI System`
          3. Create Root Partition:
-            - `49.9GB` (typically `30GB` or higher)
+            - `50G` (typically `30GB` or higher)
             - Partition Type: `Linux filesystem`
          4. Create Swap Partition:
             - `6.3GB` (typically `4GB` or higher)
