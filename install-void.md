@@ -64,7 +64,7 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
    - `Use a Device`
    - `UEFI: Removable Device`
 
-# Install Void Linux
+# Install Base Void Linux
 
 This section...
 - is heavily dependent on hardware.
