@@ -47,7 +47,7 @@ Generate a `SHA-256` hash in PowerShell for the downloaded ISO:
 2. Open [Rufus](https://rufus.ie/en/).
 3. Select the USB Drive under `Device`.
 4. `SELECT` the `void-live-x86_64-XXXXXXXX-base.iso` file.
-5. Choose a Volume Label.
+5. Set Volume Label to `VOID_LIVE`.
 6. `START`.
 
 # Boot into ISO USB
