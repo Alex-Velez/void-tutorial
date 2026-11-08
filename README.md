@@ -12,8 +12,13 @@ This section...
 
 ## Configure WiFi Internet
 
-1. Test WiFi: `wpa_cli status`
-2. Add WiFi:
+1. Enable `wpa_supplicant` service:
+   - `sv status wpa_supplicant`
+   - `ln -s /etc/sv/wpa_supplicant /etc/runit/runsvdir/default`
+   - `ip link show`
+   - `ip link set wlp3s0 up`
+3. Test WiFi: `wpa_cli status`
+4. Add WiFi:
    - `wpa_cli scan`
    - `wpa_cli scan_results`
    - `wpa_cli add_network`
@@ -23,18 +28,17 @@ This section...
    - `wpa_cli enable_network 0`
    - `wpa_cli select_network 0`
    - `wpa_cli status`
-4. Enable `wpa_supplicant` Service: `ln -s /etc/sv/wpa_supplicant /etc/runit/runsvdir/default`
 5. Test Internet Connection: `ping -c 5 voidlinux.org`
 
 ## Firmware
 
 ```
-xbps-install -Su
 xbps-install -S void-repo-nonfree
 xbps-install -S void-repo-multilib
 xbps-install -S void-repo-multilib-nonfree
-xbps-install -S linux-firmware-amd
+xbps-install -Suy
 xbps-install -S linux-firmware
+xbps-install -S linux-firmware-amd
 ```
 
 ## Tools
@@ -42,7 +46,7 @@ xbps-install -S linux-firmware
 ```
 xbps-install -S helix
 xbps-install -S nushell
-nu
+chsh -s /usr/bin/nu
 ```
 
 ## Desktop
@@ -63,7 +67,6 @@ XDG_SESSION_TYPE=wayland
 xbps-install -S dbus 
 ln -s /etc/sv/dbus /etc/runit/runsvdir/default
 xbps-install -S nvidia
-xbps-install -S xorg
 xbps-install -S nerd-fonts
 xbps-install -S elogind
 xbps-install -S tlp 
@@ -109,7 +112,7 @@ touch ~/.local/bin/desktop.nu
 chmod +x ~/.local/bin/desktop.nu 
 ```
 
-`hx ~/.local/bin/custum_banner.nu`:
+`hx ~/.local/bin/custom_banner.nu`:
 ```nu
 #!/usr/bin/env nu
 
@@ -178,7 +181,7 @@ user = "greeter"
 ```
 
 ```
-useradd -r -s /sbin/nologin -d /var/empty greeter
+useradd -r -s /sbin/nologin -M -d /var/empty greeter
 ln -s /etc/sv/greetd /etc/runit/runsvdir/default
 sv down acpid
 rm -f /var/service/acpid
@@ -188,7 +191,7 @@ reboot
 ## Essential Software
 
 ```
-xbps-install -Su alacritty broot fuzzel mako Waybar swaybg wl-clipboard grim slurp swaylock curl xz
+xbps-install -Suy alacritty broot fuzzel mako Waybar swaybg wl-clipboard grim slurp swaylock curl xz
 curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
 ```
 
@@ -198,21 +201,21 @@ curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/ins
 xbps-install -S pipewire
 mkdir -p /etc/pipewire/pipewire.conf.d
 ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
-mkdir -p /etc/pipewire/pipewire.conf.d
 ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 ```
 
 ## Bluetooth
 
 ```
-xbps-install -S libspa-bluetooth
+xbps-install -S bluez libspa-bluetooth
+ln -s /etc/sv/bluetoothd /var/service/
 ```
 
 ## Gaming
 
 ```
 xbps-install -S steam xwayland-satellite libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit nvidia-libs-32bit
-xbps-install -Su
+xbps-install -Suy
 ```
 
 # Notes
