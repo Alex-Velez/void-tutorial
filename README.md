@@ -64,6 +64,7 @@ XDG_SESSION_TYPE=wayland
 ### Graphical Packages
 
 ```
+xbps-install -S fastfetch
 xbps-install -S dbus 
 ln -s /etc/sv/dbus /etc/runit/runsvdir/default
 xbps-install -S nvidia
@@ -101,7 +102,7 @@ $env.config.show_banner = "short"
 source ~/.local/bin/desktop.nu
 source ~/.local/bin/custom_banner.nu
 
-custom_greeting
+^fastfetch
 ```
 
 Create desktop launcher scripts:
