@@ -102,7 +102,7 @@ $env.config.show_banner = "short"
 source ~/.local/bin/desktop.nu
 source ~/.local/bin/custom_banner.nu
 
-^fastfetch
+^fastfetch --disable-linewrap
 ```
 
 Create desktop launcher scripts:
